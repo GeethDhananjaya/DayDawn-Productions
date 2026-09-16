@@ -1,12 +1,13 @@
 import React from 'react';
+import headOfDirectionImg from '../../../assets/images/head_of_direction.jpg';
 import './OurCrew.css';
 
 const CREW_MEMBERS = [
   {
-    name: 'ELENA VANCE',
+    name: 'GEETH DHANANJAYA',
     role: 'HEAD OF DIRECTION',
-    specialization: 'Narrative Storytelling & Actor Performance',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
+    specialization: 'Narrative Storytelling, Cinematic Vision & Actor Direction',
+    image: headOfDirectionImg,
   },
   {
     name: 'KAELEN THORNE',
