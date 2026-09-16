@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImg from '../../../assets/icons/Gemini_Generated_Image_5x5zy15x5zy15x5z.jpg';
+import logoImg from '../../../assets/icons/daydawn_logo_transparent.png';
 import { ROUTES } from '../../../constants';
 import './Logo.css';
 

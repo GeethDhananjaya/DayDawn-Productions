@@ -20,38 +20,37 @@
   transition: transform var(--transition-fast), filter var(--transition-fast);
 }
 
-/* Sizing Options */
+/* Sizing Options (1.64:1 aspect ratio) */
 .brand-logo--sm {
-  height: 38px;
-  max-width: 120px;
+  height: 36px;
+  max-width: 110px;
 }
 
 .brand-logo--md {
-  height: 48px;
-  max-width: 150px;
+  height: 52px;
+  max-width: 160px;
 }
 
 .brand-logo--lg {
-  height: 64px;
-  max-width: 200px;
+  height: 68px;
+  max-width: 210px;
 }
 
 /* Theme Adaptation:
-   - On light background: multiply removes the white background
-   - On dark background: invert + screen turns the black elements white and removes dark background
+   Since daydawn_logo_transparent.png is pure black with transparent background:
+   - On dark background: invert(1) turns black artwork to pure white!
+   - On light background: pure crisp black artwork!
 */
 .brand-logo--theme-dark .brand-logo__img,
 .navbar--hero-state .brand-logo .brand-logo__img {
-  filter: invert(1) brightness(1.1);
-  mix-blend-mode: screen;
+  filter: invert(1) brightness(1.2);
 }
 
 .brand-logo--theme-light .brand-logo__img,
 .navbar--scrolled .brand-logo .brand-logo__img {
-  mix-blend-mode: multiply;
-  filter: contrast(1.1);
+  filter: none;
 }
 
 .brand-logo__link:hover .brand-logo__img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }

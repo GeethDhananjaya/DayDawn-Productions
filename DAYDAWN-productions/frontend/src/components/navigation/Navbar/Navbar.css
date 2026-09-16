@@ -107,10 +107,15 @@
   max-width: var(--max-width-container);
   height: 100%;
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-6) 0 var(--space-4);
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/* Brand Logo (Positioned cleanly towards the left side) */
+.navbar .brand-logo__link {
+  margin-left: -10px;
 }
 
 /* Brand Logo */

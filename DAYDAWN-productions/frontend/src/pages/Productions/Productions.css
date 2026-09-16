@@ -13,6 +13,10 @@
 }
 
 .filter-btn {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
   padding: var(--space-2) var(--space-4);
   font-size: var(--font-size-xs);
   text-transform: uppercase;
@@ -68,6 +72,10 @@
 }
 
 .production-grid-card__badge {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
   background-color: rgba(10, 10, 12, 0.85);
   color: var(--color-accent-gold);
   font-size: var(--font-size-xs);
@@ -85,6 +93,12 @@
 }
 
 .production-grid-card__title {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   font-size: var(--font-size-lg);
   color: var(--color-text-primary);
   margin-bottom: var(--space-2);

@@ -6,6 +6,10 @@
 }
 
 .contact-page__subtitle {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
   font-size: var(--font-size-xs);
   letter-spacing: 0.2em;
   color: var(--color-accent-gold);
@@ -13,7 +17,12 @@
 }
 
 .contact-page__title {
-  font-family: var(--font-family-display);
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   font-size: clamp(2rem, 5vw, 3.5rem);
   color: var(--color-text-primary);
   margin-top: var(--space-2);

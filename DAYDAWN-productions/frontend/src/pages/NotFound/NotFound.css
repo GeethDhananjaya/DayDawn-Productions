@@ -28,6 +28,12 @@
 }
 
 .not-found-title {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   font-size: var(--font-size-2xl);
   color: var(--color-text-primary);
   margin-bottom: var(--space-3);

@@ -15,6 +15,8 @@
   --color-dark-gray: #27272a;
   --color-soft-black: #18181b;
   --color-black: #09090b;
+  --color-accent-gold: #c29547;
+  --color-accent-gold-hover: #a37932;
 
   /* Semantic UI Tokens */
   --color-bg-primary: var(--color-white);

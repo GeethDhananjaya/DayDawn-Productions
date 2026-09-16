@@ -22,8 +22,13 @@
 }
 
 .about-page__card h3 {
-  font-family: var(--font-family-display);
-  color: var(--color-accent-gold);
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
   margin-bottom: var(--space-3);
   font-size: var(--font-size-lg);
 }
