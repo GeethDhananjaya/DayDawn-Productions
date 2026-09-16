@@ -40,3 +40,5 @@ export const CtaBanner = () => {
     </section>
   );
 };
+
+export default CtaBanner;

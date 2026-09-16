@@ -1,2 +1,1 @@
-export { CtaBanner } from './CtaBanner';
-export default CtaBanner;
+export { CtaBanner, default } from './CtaBanner';

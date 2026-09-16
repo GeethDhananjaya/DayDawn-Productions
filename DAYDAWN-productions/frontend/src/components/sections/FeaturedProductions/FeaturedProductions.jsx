@@ -104,3 +104,5 @@ export const FeaturedProductions = () => {
     </section>
   );
 };
+
+export default FeaturedProductions;

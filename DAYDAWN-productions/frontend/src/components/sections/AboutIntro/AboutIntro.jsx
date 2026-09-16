@@ -41,3 +41,5 @@ export const AboutIntro = () => {
     </section>
   );
 };
+
+export default AboutIntro;

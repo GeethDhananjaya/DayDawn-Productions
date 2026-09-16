@@ -1,2 +1,1 @@
-export { BehindTheScenes } from './BehindTheScenes';
-export default BehindTheScenes;
+export { BehindTheScenes, default } from './BehindTheScenes';

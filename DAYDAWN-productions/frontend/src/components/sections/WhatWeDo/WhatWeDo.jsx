@@ -78,3 +78,5 @@ export const WhatWeDo = () => {
     </section>
   );
 };
+
+export default WhatWeDo;

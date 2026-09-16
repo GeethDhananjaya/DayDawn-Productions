@@ -78,3 +78,5 @@ export const BehindTheScenes = () => {
     </section>
   );
 };
+
+export default BehindTheScenes;

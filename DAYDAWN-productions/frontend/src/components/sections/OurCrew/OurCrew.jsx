@@ -67,3 +67,5 @@ export const OurCrew = () => {
     </section>
   );
 };
+
+export default OurCrew;

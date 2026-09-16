@@ -1,2 +1,1 @@
-export { AboutIntro } from './AboutIntro';
-export default AboutIntro;
+export { AboutIntro, default } from './AboutIntro';

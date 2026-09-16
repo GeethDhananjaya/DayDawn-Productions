@@ -1,2 +1,1 @@
-export { OurCrew } from './OurCrew';
-export default OurCrew;
+export { OurCrew, default } from './OurCrew';

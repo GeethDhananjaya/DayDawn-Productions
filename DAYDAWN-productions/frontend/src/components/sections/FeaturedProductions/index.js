@@ -1,2 +1,1 @@
-export { FeaturedProductions } from './FeaturedProductions';
-export default FeaturedProductions;
+export { FeaturedProductions, default } from './FeaturedProductions';
