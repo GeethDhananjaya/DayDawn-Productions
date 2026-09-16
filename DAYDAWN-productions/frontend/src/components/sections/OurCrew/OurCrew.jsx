@@ -4,9 +4,9 @@ import './OurCrew.css';
 
 const CREW_MEMBERS = [
   {
-    name: 'GEETH DHANANJAYA',
-    role: 'HEAD OF DIRECTION',
-    specialization: 'Narrative Storytelling, Cinematic Vision & Actor Direction',
+    name: 'MANUKA HASITHA',
+    role: 'HEAD OF PRODUCTION',
+    specialization: 'Production Leadership, Directorial Vision & Narrative Craft',
     image: headOfDirectionImg,
   },
   {
