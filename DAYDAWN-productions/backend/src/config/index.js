@@ -14,7 +14,7 @@ const config = {
   },
 
   db: {
-    url: process.env.DATABASE_URL || 'postgres://daydawn_user:daydawn_secure_password@localhost:5432/daydawn_db',
+    mongoUri: process.env.MONGODB_URI || '',
   },
 
   rateLimit: {

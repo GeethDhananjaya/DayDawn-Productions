@@ -1,12 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const config = require('./config');
+const { connectDB, disconnectDB } = require('./config/database');
 const { helmet, cors, rateLimiter } = require('./middleware/security');
 const requestLogger = require('./middleware/requestLogger');
 const errorHandler = require('./middleware/errorHandler');
 const apiRoutes = require('./routes');
 const logger = require('./utils/logger');
 const AppError = require('./utils/appError');
+const productionRepository = require('./repositories/productionRepository');
 
 const app = express();
 
@@ -31,18 +33,25 @@ app.use(errorHandler);
 
 // Start Server if invoked directly
 if (require.main === module) {
+  // 1. Connect to MongoDB Atlas
+  connectDB().then(() => {
+    productionRepository.seedInitialIfNeeded();
+  });
+
+  // 2. Start HTTP Listener
   const server = app.listen(config.port, config.host, () => {
     logger.info(`DAYDAWN Productions API running on http://${config.host}:${config.port}/api/v1 (ENV: ${config.env})`);
   });
 
-  const gracefulShutdown = (signal) => {
+  // 3. Graceful Lifecycle Handlers
+  const gracefulShutdown = async (signal) => {
     logger.info(`Received ${signal}. Initiating graceful shutdown...`);
-    server.close(() => {
-      logger.info('HTTP server closed cleanly. Exiting process.');
+    server.close(async () => {
+      logger.info('HTTP server closed cleanly.');
+      await disconnectDB();
       process.exit(0);
     });
 
-    // Force exit after 10 seconds if connections hang
     setTimeout(() => {
       logger.error('Could not close connections in time, forcefully shutting down');
       process.exit(1);

@@ -2,11 +2,13 @@ const express = require('express');
 const healthRoutes = require('./healthRoutes');
 const inquiryRoutes = require('./inquiryRoutes');
 const productionRoutes = require('./productionRoutes');
+const authRoutes = require('./authRoutes');
 
 const router = express.Router();
 
 // Versioned API routes: /api/v1/...
 router.use('/health', healthRoutes);
+router.use('/auth', authRoutes);
 router.use('/inquiries', inquiryRoutes);
 router.use('/productions', productionRoutes);
 

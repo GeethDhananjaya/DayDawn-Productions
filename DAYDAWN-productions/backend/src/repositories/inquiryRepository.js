@@ -1,25 +1,48 @@
+const mongoose = require('mongoose');
 const Inquiry = require('../models/Inquiry');
+const logger = require('../utils/logger');
 
-// In-memory data store for initial staging / development
-const inquiriesStore = [];
+// In-memory fallback store if MongoDB is offline during local test
+const inMemoryStore = [];
 
-/**
- * Repository layer for Inquiries
- */
 class InquiryRepository {
+  isDbConnected() {
+    return mongoose.connection.readyState === 1;
+  }
+
   async create(data) {
-    const id = `inq_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`;
-    const inquiry = new Inquiry({ id, ...data });
-    inquiriesStore.push(inquiry);
-    return inquiry;
+    if (this.isDbConnected()) {
+      try {
+        const doc = await Inquiry.create(data);
+        return doc.toObject();
+      } catch (err) {
+        logger.error('Error creating inquiry in MongoDB:', err);
+        throw err;
+      }
+    }
+
+    const fallback = {
+      id: `inq_${Date.now()}`,
+      ...data,
+      status: 'NEW',
+      createdAt: new Date(),
+    };
+    inMemoryStore.push(fallback);
+    return fallback;
   }
 
   async findAll() {
-    return [...inquiriesStore];
+    if (this.isDbConnected()) {
+      return Inquiry.find().sort({ createdAt: -1 }).lean();
+    }
+    return [...inMemoryStore];
   }
 
   async findById(id) {
-    return inquiriesStore.find((item) => item.id === id) || null;
+    if (this.isDbConnected()) {
+      return Inquiry.findById(id).lean();
+    }
+    return inMemoryStore.find((i) => i.id === id) || null;
   }
 }
 
