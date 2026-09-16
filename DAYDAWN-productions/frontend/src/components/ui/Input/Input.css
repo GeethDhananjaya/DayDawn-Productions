@@ -7,18 +7,19 @@
 }
 
 .form-label {
+  font-family: var(--font-family-display);
   font-size: var(--font-size-xs);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--color-text-secondary);
 }
 
 .form-control {
   width: 100%;
   padding: var(--space-3) var(--space-4);
-  background-color: var(--color-bg-elevated);
+  background-color: var(--color-white);
   border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
   color: var(--color-text-primary);
   font-size: var(--font-size-sm);
   transition: border-color var(--transition-fast);
@@ -26,7 +27,7 @@
 
 .form-control:focus {
   outline: none;
-  border-color: var(--color-accent-gold);
+  border-color: var(--color-black);
 }
 
 .form-control--error {

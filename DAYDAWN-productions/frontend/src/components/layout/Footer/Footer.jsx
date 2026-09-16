@@ -1,52 +1,73 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { COMPANY_INFO, NAV_LINKS, ROUTES } from '../../../constants';
+import { COMPANY_INFO, SOCIAL_LINKS, ROUTES } from '../../../constants';
 import './Footer.css';
 
 export const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer__container">
-        <div className="footer__main">
-          <div className="footer__brand-col">
-            <h3 className="footer__brand">{COMPANY_INFO.NAME}</h3>
-            <p className="footer__tagline">{COMPANY_INFO.TAGLINE}</p>
-            <p className="footer__info">{COMPANY_INFO.LOCATION}</p>
-            <p className="footer__info">{COMPANY_INFO.EMAIL}</p>
+    <footer className="site-footer">
+      <div className="container">
+        <div className="site-footer__main">
+          {/* Brand Column */}
+          <div className="site-footer__brand-col">
+            <Link to={ROUTES.HOME} className="site-footer__brand">
+              <span className="site-footer__wordmark">DAYDAWN</span>
+              <span className="site-footer__tag">PRODUCTIONS</span>
+            </Link>
+            <p className="site-footer__tagline">{COMPANY_INFO.TAGLINE}</p>
+            <p className="site-footer__detail">{COMPANY_INFO.LOCATION}</p>
+            <p className="site-footer__detail">{COMPANY_INFO.EMAIL}</p>
+            <p className="site-footer__detail">{COMPANY_INFO.PHONE}</p>
           </div>
 
-          <div className="footer__links-col">
-            <h4 className="footer__col-title">Navigation</h4>
-            <ul className="footer__nav-list">
-              {NAV_LINKS.map((link) => (
-                <li key={link.path}>
-                  <Link to={link.path} className="footer__nav-link">
-                    {link.label}
-                  </Link>
+          {/* Navigation Column */}
+          <div className="site-footer__nav-col">
+            <h4 className="site-footer__heading">NAVIGATION</h4>
+            <ul className="site-footer__list">
+              <li><a href="/#hero">Home</a></li>
+              <li><a href="/#about">About Us</a></li>
+              <li><a href="/#services">Services</a></li>
+              <li><a href="/#work">Productions</a></li>
+              <li><a href="/#crew">Our Crew</a></li>
+              <li><a href="/#bts">Behind The Scenes</a></li>
+            </ul>
+          </div>
+
+          {/* Connect & Portal Column */}
+          <div className="site-footer__nav-col">
+            <h4 className="site-footer__heading">PORTAL & ACCESS</h4>
+            <ul className="site-footer__list">
+              <li><Link to="/login">Crew & Client Login</Link></li>
+              <li><a href="/#contact">Project Inquiries</a></li>
+              <li><a href="/#services">Production Capabilities</a></li>
+            </ul>
+          </div>
+
+          {/* Social Channels Column */}
+          <div className="site-footer__social-col">
+            <h4 className="site-footer__heading">CHANNELS</h4>
+            <ul className="site-footer__list">
+              {Object.entries(SOCIAL_LINKS).map(([name, url]) => (
+                <li key={name}>
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    {name} ↗
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
-
-          <div className="footer__legal-col">
-            <h4 className="footer__col-title">Production Inquiries</h4>
-            <p className="footer__inquiry-text">
-              Accepting feature film, commercial, and streaming project bookings worldwide.
-            </p>
-            <Link to={ROUTES.CONTACT} className="footer__inquiry-btn">
-              Initiate Project →
-            </Link>
-          </div>
         </div>
 
-        <div className="footer__bottom">
+        {/* Bottom Bar */}
+        <div className="site-footer__bottom">
           <p>© {new Date().getFullYear()} {COMPANY_INFO.NAME}. All rights reserved.</p>
-          <div className="footer__bottom-links">
-            <span>Privacy Policy</span>
-            <span>Terms of Production</span>
+          <div className="site-footer__legal">
+            <span>Light + Minimal + Cinematic + Human</span>
           </div>
         </div>
       </div>
     </footer>
   );
 };
+
+export default Footer;

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routes';
-import { ThemeProvider } from './context/ThemeContext';
-import { ErrorMessage } from './components/common/ErrorMessage';
+import { AuthProvider } from './auth';
 import { Button } from './components/common/Button';
 
 /**
@@ -35,18 +34,18 @@ class GlobalErrorBoundary extends Component {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#0a0a0c',
-          color: '#f5f5f7',
+          backgroundColor: '#09090b',
+          color: '#ffffff',
           padding: '2rem',
           textAlign: 'center',
         }}>
-          <h1 style={{ fontFamily: 'serif', color: '#e5a93c', marginBottom: '1rem' }}>
-            DAYDAWN Productions
+          <h1 style={{ fontFamily: 'Oswald, sans-serif', fontSize: '2.5rem', marginBottom: '1rem', letterSpacing: '0.05em' }}>
+            DAYDAWN PRODUCTIONS
           </h1>
-          <p style={{ marginBottom: '1.5rem', color: '#a1a1aa' }}>
+          <p style={{ marginBottom: '1.5rem', color: '#a1a1aa', maxWidth: '500px' }}>
             A temporary display error occurred while rendering the production stream.
           </p>
-          <Button onClick={this.handleReload}>Reload Platform</Button>
+          <Button variant="white" onClick={this.handleReload}>Reload Platform</Button>
         </div>
       );
     }
@@ -58,9 +57,9 @@ class GlobalErrorBoundary extends Component {
 export function App() {
   return (
     <GlobalErrorBoundary>
-      <ThemeProvider>
+      <AuthProvider>
         <RouterProvider router={router} />
-      </ThemeProvider>
+      </AuthProvider>
     </GlobalErrorBoundary>
   );
 }

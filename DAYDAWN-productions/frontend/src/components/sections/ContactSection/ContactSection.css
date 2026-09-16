@@ -1,6 +1,7 @@
 .contact-section {
   padding: var(--space-24) 0;
   background-color: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border-subtle);
 }
 
 .contact-wrapper {
@@ -9,10 +10,11 @@
 }
 
 .contact-form {
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-white);
   border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-xs);
   padding: var(--space-8);
+  box-shadow: var(--shadow-subtle);
 }
 
 .contact-form__row {
@@ -22,9 +24,9 @@
 }
 
 .contact-success {
-  background-color: var(--color-bg-primary);
-  border: 1px solid var(--color-accent-gold);
-  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: var(--radius-xs);
   padding: var(--space-12);
   text-align: center;
   display: flex;
@@ -36,7 +38,7 @@
 .contact-success h3 {
   font-family: var(--font-family-display);
   font-size: var(--font-size-2xl);
-  color: var(--color-accent-gold);
+  color: var(--color-black);
 }
 
 .contact-success p {

@@ -1,0 +1,122 @@
+.bts-section {
+  padding: var(--space-32) 0;
+  background-color: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.bts-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-16);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border-subtle);
+  gap: var(--space-8);
+}
+
+.bts-section__eyebrow {
+  display: block;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.bts-section__title {
+  font-family: var(--font-family-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-black);
+  line-height: 1;
+}
+
+.bts-section__header-desc {
+  max-width: 440px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.65;
+}
+
+/* BTS Grid */
+.bts-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-6);
+}
+
+.bts-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.bts-card--featured {
+  grid-column: span 8;
+}
+
+.bts-card--regular {
+  grid-column: span 4;
+}
+
+.bts-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--color-light-gray);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.bts-card--featured .bts-card__media {
+  aspect-ratio: 16 / 9;
+}
+
+.bts-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  /* Zero grayscale or artificial coloring */
+}
+
+.bts-card:hover .bts-card__img {
+  transform: scale(1.02);
+}
+
+.bts-card__caption {
+  padding-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+}
+
+.bts-card__title {
+  font-family: var(--font-family-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: var(--color-black);
+  margin-bottom: 2px;
+}
+
+.bts-card__text {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .bts-card--featured,
+  .bts-card--regular {
+    grid-column: span 12;
+  }
+  .bts-section__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .bts-section {
+    padding: var(--space-20) 0;
+  }
+}

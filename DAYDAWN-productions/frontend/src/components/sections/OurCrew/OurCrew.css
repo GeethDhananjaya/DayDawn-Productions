@@ -1,0 +1,120 @@
+.our-crew {
+  padding: var(--space-32) 0;
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.our-crew__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-16);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border-subtle);
+  gap: var(--space-8);
+}
+
+.our-crew__eyebrow {
+  display: block;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.our-crew__title {
+  font-family: var(--font-family-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-black);
+  line-height: 1;
+}
+
+.our-crew__header-desc {
+  max-width: 440px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.65;
+}
+
+/* 4-column Crew Grid */
+.our-crew__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+}
+
+.crew-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.crew-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--color-light-gray);
+  border: 1px solid var(--color-border-subtle);
+  margin-bottom: var(--space-4);
+}
+
+.crew-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.crew-card:hover .crew-card__img {
+  transform: scale(1.03);
+}
+
+.crew-card__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.crew-card__role {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.crew-card__name {
+  font-family: var(--font-family-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-black);
+  margin-bottom: var(--space-2);
+}
+
+.crew-card__spec {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .our-crew__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .our-crew__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .our-crew {
+    padding: var(--space-20) 0;
+  }
+  .our-crew__grid {
+    grid-template-columns: 1fr;
+  }
+}

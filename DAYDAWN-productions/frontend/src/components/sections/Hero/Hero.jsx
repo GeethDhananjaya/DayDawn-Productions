@@ -1,32 +1,56 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '../../common/Button';
-import { ROUTES } from '../../../constants';
+import heroBgImage from '../../../assets/images/—Pngtree—group of people working on_15725416.jpg';
 import './Hero.css';
 
-export const Hero = ({
-  tagline = 'Cinematic Masterpieces. Commercial Impact.',
-  title = 'DAYDAWN PRODUCTIONS',
-  subtitle = 'A premier production company creating narrative films, premium commercials, and groundbreaking visual experiences for global audiences.',
-}) => {
+export const Hero = () => {
+  const handleScrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="hero">
-      <div className="hero__background">
-        <div className="hero__overlay" />
-      </div>
-      <div className="container hero__content">
-        <span className="hero__tagline">{tagline}</span>
-        <h1 className="hero__title">{title}</h1>
-        <p className="hero__subtitle">{subtitle}</p>
-        <div className="hero__actions">
-          <Link to={ROUTES.PRODUCTIONS}>
-            <Button size="lg">Explore Portfolio</Button>
-          </Link>
-          <Link to={ROUTES.CONTACT}>
-            <Button variant="outline" size="lg">
-              Start a Project
+    <section className="hero" id="hero">
+      {/* Background layer with subtle blur and slight scale */}
+      <div
+        className="hero__bg-layer"
+        style={{ backgroundImage: `url(${heroBgImage})` }}
+        aria-hidden="true"
+      />
+
+      {/* Subtle dark translucent overlay to ensure readable foreground typography */}
+      <div className="hero__overlay" aria-hidden="true" />
+
+      {/* Crisp foreground content layer */}
+      <div className="container hero__container">
+        <div className="hero__content">
+          <span className="hero__eyebrow">DAYDAWN PRODUCTIONS</span>
+          <h1 className="hero__title">
+            <span>CREATE.</span>
+            <span>CAPTURE.</span>
+            <span className="hero__title-accent">CREATE AGAIN.</span>
+          </h1>
+          <p className="hero__description">
+            Stories shaped by people, places and moments. A collaborative production crew bringing cinematic vision and authentic human energy to narrative film, high-impact commercials, and visual storytelling.
+          </p>
+          <div className="hero__actions">
+            <Button
+              variant="white"
+              size="lg"
+              onClick={() => handleScrollTo('work')}
+            >
+              VIEW OUR WORK
             </Button>
-          </Link>
+            <Button
+              variant="outline-white"
+              size="lg"
+              onClick={() => handleScrollTo('crew')}
+            >
+              MEET THE CREW
+            </Button>
+          </div>
         </div>
       </div>
     </section>

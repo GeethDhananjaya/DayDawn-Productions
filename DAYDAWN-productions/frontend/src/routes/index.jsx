@@ -1,11 +1,13 @@
 import React, { lazy, Suspense } from 'react';
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import { MainLayout } from '../layouts/MainLayout';
 import { AdminLayout } from '../layouts/AdminLayout';
 import { Loading } from '../components/common/Loading';
+import { ProtectedRoute } from '../auth/ProtectedRoute';
+import { ROLES } from '../auth/rolePermissions';
 import { ROUTES } from '../constants/routes';
 
-// Lazy loaded page components for optimal production bundle splitting
+// Lazy loaded views
 const HomePage = lazy(() => import('../pages/Home'));
 const AboutPage = lazy(() => import('../pages/About'));
 const ServicesPage = lazy(() => import('../pages/Services'));
@@ -13,6 +15,7 @@ const ProductionsPage = lazy(() => import('../pages/Productions'));
 const ProductionDetailsPage = lazy(() => import('../pages/ProductionDetails'));
 const ContactPage = lazy(() => import('../pages/Contact'));
 const NotFoundPage = lazy(() => import('../pages/NotFound'));
+const LoginPage = lazy(() => import('../pages/Login'));
 
 /**
  * Suspense wrapper for lazy-loaded routes
@@ -53,6 +56,28 @@ export const router = createBrowserRouter([
         element: withSuspense(ContactPage),
       },
       {
+        path: 'login',
+        element: withSuspense(LoginPage),
+      },
+      {
+        path: 'portal',
+        element: (
+          <ProtectedRoute allowedRoles={[ROLES.ADMIN, ROLES.CREW, ROLES.CLIENT]}>
+            <div style={{ padding: '6rem 2rem', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+              <h1 style={{ fontFamily: 'var(--font-family-display)', fontSize: '2.5rem', marginBottom: '1rem' }}>
+                DAYDAWN PRODUCTION PORTAL
+              </h1>
+              <p style={{ color: 'var(--color-text-secondary)', marginBottom: '2rem' }}>
+                Active protected crew and client area. Connected to user authentication foundation.
+              </p>
+              <a href="/" style={{ textDecoration: 'underline', color: 'var(--color-text-primary)' }}>
+                Return to Public Website
+              </a>
+            </div>
+          </ProtectedRoute>
+        ),
+      },
+      {
         path: '404',
         element: withSuspense(NotFoundPage),
       },
@@ -64,11 +89,24 @@ export const router = createBrowserRouter([
   },
   {
     path: '/admin',
-    element: <AdminLayout />,
+    element: (
+      <ProtectedRoute allowedRoles={[ROLES.ADMIN]}>
+        <AdminLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         index: true,
-        element: <div><h2>Admin Portal Placeholder</h2><p>Ready for secure CMS integration.</p></div>,
+        element: (
+          <div style={{ padding: '2rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-family-display)', fontSize: '2rem', marginBottom: '1rem' }}>
+              ADMINISTRATIVE DASHBOARD
+            </h2>
+            <p style={{ color: 'var(--color-text-secondary)' }}>
+              Protected administrative area (Role: ADMIN only).
+            </p>
+          </div>
+        ),
       },
     ],
   },
