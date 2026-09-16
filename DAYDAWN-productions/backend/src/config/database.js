@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const logger = require('../utils/logger');
 const config = require('./index');
 
+let isIntentionalDisconnect = false;
+
 /**
  * Connect to MongoDB Atlas
  */
@@ -14,6 +16,7 @@ const connectDB = async () => {
   }
 
   try {
+    isIntentionalDisconnect = false;
     const conn = await mongoose.connect(uri, {
       serverSelectionTimeoutMS: 8000,
       autoIndex: true,
@@ -26,7 +29,9 @@ const connectDB = async () => {
     });
 
     mongoose.connection.on('disconnected', () => {
-      logger.warn('MongoDB connection lost. Attempting reconnection...');
+      if (!isIntentionalDisconnect) {
+        logger.warn('MongoDB connection lost unexpectedly. Attempting reconnection...');
+      }
     });
 
     return conn;
@@ -42,6 +47,7 @@ const connectDB = async () => {
 
 const disconnectDB = async () => {
   try {
+    isIntentionalDisconnect = true;
     await mongoose.connection.close();
     logger.info('MongoDB Atlas connection cleanly closed.');
   } catch (err) {
