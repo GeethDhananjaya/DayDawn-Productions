@@ -1,0 +1,93 @@
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.gallery-item {
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent-gold);
+}
+
+.gallery-item__media-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.gallery-item__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.gallery-item:hover .gallery-item__img {
+  transform: scale(1.05);
+}
+
+.gallery-item__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #141419 0%, #1f1f29 100%);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.gallery-item__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-4);
+  opacity: 0.9;
+}
+
+.gallery-item__title {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.gallery-item__tag {
+  color: var(--color-accent-gold);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.gallery-preview__placeholder {
+  padding: var(--space-12);
+  text-align: center;
+  background-color: var(--color-bg-elevated);
+  border-radius: var(--radius-sm);
+}
+
+.gallery-preview__img {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.gallery--empty {
+  text-align: center;
+  padding: var(--space-12);
+  color: var(--color-text-muted);
+}

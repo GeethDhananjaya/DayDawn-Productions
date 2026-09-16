@@ -1,0 +1,35 @@
+.about-page__hero {
+  padding-top: calc(var(--header-height) + var(--space-12));
+  padding-bottom: var(--space-12);
+  background: radial-gradient(circle at top, #1c1c24 0%, var(--color-bg-primary) 70%);
+}
+
+.about-page__details {
+  padding: var(--space-16) var(--space-6);
+}
+
+.about-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+}
+
+.about-page__card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+}
+
+.about-page__card h3 {
+  font-family: var(--font-family-display);
+  color: var(--color-accent-gold);
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-lg);
+}
+
+.about-page__card p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+}

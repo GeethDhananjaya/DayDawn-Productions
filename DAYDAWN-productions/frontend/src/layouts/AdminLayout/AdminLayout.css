@@ -1,0 +1,43 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+}
+
+.admin-sidebar {
+  width: 240px;
+  background-color: var(--color-bg-secondary);
+  border-right: 1px solid var(--color-border-subtle);
+  padding: var(--space-6);
+}
+
+.admin-sidebar__brand {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-md);
+  color: var(--color-accent-gold);
+  margin-bottom: var(--space-8);
+}
+
+.admin-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.admin-sidebar__link {
+  color: var(--color-text-secondary);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+}
+
+.admin-sidebar__link:hover {
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+}
+
+.admin-content {
+  flex: 1;
+  padding: var(--space-8);
+}

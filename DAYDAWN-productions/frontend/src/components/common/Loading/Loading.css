@@ -1,0 +1,34 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  gap: var(--space-4);
+}
+
+.loading-container--fullscreen {
+  min-height: 60vh;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(229, 169, 60, 0.15);
+  border-top-color: var(--color-accent-gold);
+  border-radius: 50%;
+  animation: spinnerRotate 0.8s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.loading-label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@keyframes spinnerRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
