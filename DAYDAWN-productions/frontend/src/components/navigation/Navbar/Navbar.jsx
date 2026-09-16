@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../../constants';
 import { useAuth } from '../../../auth';
+import { Logo } from '../../common/Logo';
 import { MobileMenu } from '../MobileMenu';
 import './Navbar.css';
 
@@ -46,11 +47,8 @@ export const Navbar = () => {
   return (
     <nav className={`navbar ${isHeroState ? 'navbar--hero-state' : 'navbar--scrolled'}`}>
       <div className="navbar__container">
-        {/* Brand Logo */}
-        <Link to={ROUTES.HOME} className="navbar__brand">
-          <span className="navbar__brand-wordmark">DAYDAWN</span>
-          <span className="navbar__brand-tag">PRODUCTIONS</span>
-        </Link>
+        {/* Official Brand Logo */}
+        <Logo size="md" />
 
         {/* Desktop Navigation Links */}
         <div className="navbar__nav-list">

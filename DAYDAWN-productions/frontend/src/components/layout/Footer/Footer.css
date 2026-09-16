@@ -12,11 +12,12 @@
   margin-bottom: var(--space-16);
 }
 
-.site-footer__brand {
-  display: inline-flex;
+.site-footer__brand-col {
+  display: flex;
   flex-direction: column;
-  text-decoration: none;
-  line-height: 1;
+}
+
+.site-footer__logo {
   margin-bottom: var(--space-4);
 }
 

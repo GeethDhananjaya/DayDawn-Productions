@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../common/Button';
+import { Logo } from '../../common/Logo';
 import './MobileMenu.css';
 
 export const MobileMenu = ({
@@ -28,10 +29,7 @@ export const MobileMenu = ({
     <div className="mobile-drawer-backdrop" onClick={onClose} role="dialog" aria-modal="true">
       <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
         <div className="mobile-drawer__header">
-          <div className="mobile-drawer__brand">
-            <span className="mobile-drawer__wordmark">DAYDAWN</span>
-            <span className="mobile-drawer__tag">PRODUCTIONS</span>
-          </div>
+          <Logo size="sm" theme="light" />
           <button className="mobile-drawer__close" onClick={onClose} aria-label="Close menu">
             ✕
           </button>

@@ -88,6 +88,10 @@
   margin-bottom: var(--space-8);
 }
 
+.login-header__logo {
+  margin-bottom: var(--space-4);
+}
+
 .login-brand {
   display: inline-flex;
   flex-direction: column;

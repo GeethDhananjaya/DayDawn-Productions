@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { COMPANY_INFO, SOCIAL_LINKS, ROUTES } from '../../../constants';
+import { Logo } from '../../common/Logo';
 import './Footer.css';
 
 export const Footer = () => {
@@ -10,10 +11,7 @@ export const Footer = () => {
         <div className="site-footer__main">
           {/* Brand Column */}
           <div className="site-footer__brand-col">
-            <Link to={ROUTES.HOME} className="site-footer__brand">
-              <span className="site-footer__wordmark">DAYDAWN</span>
-              <span className="site-footer__tag">PRODUCTIONS</span>
-            </Link>
+            <Logo size="lg" theme="light" className="site-footer__logo" />
             <p className="site-footer__tagline">{COMPANY_INFO.TAGLINE}</p>
             <p className="site-footer__detail">{COMPANY_INFO.LOCATION}</p>
             <p className="site-footer__detail">{COMPANY_INFO.EMAIL}</p>

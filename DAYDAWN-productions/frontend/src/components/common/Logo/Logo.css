@@ -1,0 +1,57 @@
+.brand-logo__link {
+  display: inline-flex;
+  text-decoration: none;
+  align-items: center;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xs);
+}
+
+.brand-logo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+/* Sizing Options */
+.brand-logo--sm {
+  height: 38px;
+  max-width: 120px;
+}
+
+.brand-logo--md {
+  height: 48px;
+  max-width: 150px;
+}
+
+.brand-logo--lg {
+  height: 64px;
+  max-width: 200px;
+}
+
+/* Theme Adaptation:
+   - On light background: multiply removes the white background
+   - On dark background: invert + screen turns the black elements white and removes dark background
+*/
+.brand-logo--theme-dark .brand-logo__img,
+.navbar--hero-state .brand-logo .brand-logo__img {
+  filter: invert(1) brightness(1.1);
+  mix-blend-mode: screen;
+}
+
+.brand-logo--theme-light .brand-logo__img,
+.navbar--scrolled .brand-logo .brand-logo__img {
+  mix-blend-mode: multiply;
+  filter: contrast(1.1);
+}
+
+.brand-logo__link:hover .brand-logo__img {
+  transform: scale(1.02);
+}

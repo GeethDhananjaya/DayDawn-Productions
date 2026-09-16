@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth, ROLES } from '../../auth';
 import { Button } from '../../components/common/Button';
 import { Input } from '../../components/ui/Input';
+import { Logo } from '../../components/common/Logo';
 import { ErrorMessage } from '../../components/common/ErrorMessage';
 import { ROUTES } from '../../constants';
 import heroImage from '../../assets/images/—Pngtree—group of people working on_15725416.jpg';
@@ -85,10 +86,7 @@ export const LoginPage = () => {
         {/* Right Side: Minimal Form */}
         <div className="login-form-wrapper">
           <div className="login-header">
-            <Link to={ROUTES.HOME} className="login-brand">
-              <span className="login-brand__title">DAYDAWN</span>
-              <span className="login-brand__sub">PRODUCTIONS</span>
-            </Link>
+            <Logo size="md" theme="light" className="login-header__logo" />
             <h1 className="login-title">PRODUCTION PORTAL</h1>
             <p className="login-subtitle">
               Sign in with your crew or client credentials.
